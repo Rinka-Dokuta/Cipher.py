@@ -1,0 +1,55 @@
+# List of characters to find the unicode numbers of:
+letters = ["L", "U", "I", "G", "I"]
+           
+# Print the symbol corresponding to each Unicode point
+print()
+print("Unicode numbers for", letters)
+for i in letters:
+     print(ord(i), end=" ")
+
+# List of Unicode points for various symbols
+symbols = [0x1f42a, 0x2664, 0x1F33A, 0x1F320, 0x1F340]
+
+# Print the symbol corresponding to each Unicode point
+print()
+print("unicode symbols for", symbols)
+for j in symbols:
+    print(chr(j), end=" ")
+    
+    
+#The clock----------------------------------------------------->
+    
+# Ask the user for the current hour(1-12)
+current_hour = int(input("Enter the current hour (1-24): "))
+
+# Ask the user how many hours to add
+hours_to_add = int(input("How many hours do you want top add? "))
+
+# Calculate the new hour using modulo 12 to wraqp around after 12
+#Adjust by subtracting 1 before the modulo and adding 1 after to ensure the 1-12 range
+new_hour = ((current_hour - 1 + hours_to_add) % 24) + 1
+
+# Print the result
+print("In", hours_to_add, "hours, the time will be", new_hour, ":00.")
+
+#Caesar cipher Code------------------------------------------------->
+
+#Ask the user for the message to encrypt
+
+message = input("Enter the message you'd like to encrypt")
+
+#Ask the user for the number of positions to shift
+positions = int(input("Enter the number of shifts:"))
+
+#Create an empty string to hold the encrypted message
+encrypted_message = ""
+
+#lopp through each character in message
+for i in message:
+    #Shift the character by the shift amount of wrap around using modul 26
+    shifted = (ord(i) - ord('A') + positions) % 26
+    #convert the shiftednumeric value back to a character and directly add to the string
+    encrypted_message += chr(shifted + ord('A'))
+    
+#Print the encrypted message
+print("Your encrypted message is:", encrypted_message)
